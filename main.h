@@ -6,7 +6,7 @@
 int printchar(va_list chr);
 int _putchar(char);
 int _printf(const char *format, ...);
-int print_perc(va_list);
+int print_perc(void);
 int printstr(va_list);
 int print_int(va_list);
 int print_dec(va_list);
