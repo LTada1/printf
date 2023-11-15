@@ -18,6 +18,10 @@ int _exp(int, int);
 int digits(int);
 int _strlen(char *s);
 int print_ui(va_list);
+int print_hex(va_list);
+int print_heX(va_list);
+void put_hex(int nums[], int, int);
+void put_heX(int nums[], int, int);
 
 #endif /* MAIN_H */
 =======
