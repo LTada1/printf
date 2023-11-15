@@ -97,3 +97,32 @@ int print_dec(va_list nums)
 	return (idx);
 
 }
+
+/**
+ * print_ui - Prints a integer
+ *
+ * @nums: Number to print
+ *
+ * Return: Number of digits
+ */
+int print_ui(va_list nums)
+{
+	int idx, i;
+	unsigned int num, n;
+
+	num = va_arg(nums, int);
+	idx = digits((int)num);
+	i = idx;
+
+	--i;
+	while (i >= 0)
+	{
+		n = num;
+		n /= _exp(10, i);
+		_putchar('0' + (n % 10));
+		i--;
+	}
+
+	return (idx);
+
+}

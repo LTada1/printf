@@ -2,6 +2,8 @@
 #define MAIN_H
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
+#include <stdlib.h>
 
 int printchar(va_list chr);
 int _putchar(char);
@@ -14,6 +16,6 @@ int print_bin(va_list);
 int _exp(int, int);
 int digits(int);
 int _strlen(char *s);
-
+int print_ui(va_list);
 
 #endif /* MAIN_H */
