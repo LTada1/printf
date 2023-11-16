@@ -9,29 +9,21 @@
  * str
  *
  */
+
 int printstr(va_list str)
 {
-	char *st;
-	int i, len;
+    char *st;
+    int len;
 
-	st = va_arg(str, char *);
+    st = va_arg(str, char *);
 
-	/* Handles NULL */
-	if (st == NULL)
-	{
-		st = "(null)";
-		len = _strlen(st);
-		for (i = 0; i < len; i++)
-		{
-			_putchar(st[i]);
-		}
-	}
-	else
-	{
-		len = _strlen(st);
-		for (i = 0; i < len; i++)
-			_putchar(st[i]);
-	}
+    if (st == NULL) {
+        len = write(1, "(null)", 6);
+    } else {
+        len = write(1, "String:[", 8);
+        len += write(1, st, _strlen(st));
+        len += write(1, "]\n", 2);
+    }
 
-	return (len);
+    return len;
 }

@@ -14,31 +14,33 @@
 int _printf(const char *format, ...)
 {
 va_list args;
-int i, char_print = 0, num_of_specify;
-Fspecify *specifier;
+int i = 0;
+int char_print = 0;
 
 
-specifier = _formparse(format, &num_of_specify);
-for (i = 0; i < num_of_specify; ++i)
+while(format[i] != '\0')
 {
-        if (specifier[i].specifiers == 's')
+	if (format[i] == '%'){
+	i++;
+        if (format[i] == 's')
 	{
             char_print += printstr(args);
-        } else if (specifier[i].specifiers == '%'){
+        } else if (format[i]  == '%'){
             char_print += print_perc();
-        } else if (specifier[i].specifiers == 'c') {
+        } else if (format[i]  == 'c') {
             char_print += printchar(args);
-        } else if (specifier[i].specifiers == 'd') {
+        } else if (format[i]  == 'd') {
             char_print += print_int(args);
-        } else if (specifier[i].specifiers == 'r') {
-            char_print += print_unknown(args); 
+        } else if (format[i]  == 'r') {
+            char_print += print_unknown();
+	}
 	} else
 	{
             _putchar(format[i]);
 		char_print++;
         }
+	i++;
     }
     va_end(args);
-    free(specifier);
 return (char_print);
 }
