@@ -1,5 +1,8 @@
 #include "main.h"
 
-int print_unknown(void) {
-    return write(1, "%r", 2);
+int print_unknown(void)
+{
+_putchar('%');
+_putchar('r');
+return 2;
 }

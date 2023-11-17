@@ -64,6 +64,9 @@ case 'u':
 	return (unsigned_int(args));
 case 'r':
 	return (print_unknown());
+case 'X':
+case 'x':
+	return (print_hex(args));
 default:
 	_putchar(specifier);
 return (1);
