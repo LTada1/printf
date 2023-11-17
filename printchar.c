@@ -7,12 +7,12 @@
  *
  * Return: 1
  */
+
 int printchar(va_list chr)
 {
-	char ch;
-	/* Access argument */
-	ch = va_arg(chr, int);
-	_putchar(ch);
+char ch;
+ch = va_arg(chr, int);
+_putchar(ch);
 
-	return (1);
+return (1);
 }

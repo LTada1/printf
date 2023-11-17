@@ -2,17 +2,31 @@
 #include "main.h"
 
 /**
- * printstring - print string of characters
- * @str: string
- * 
+ * _printstr - print string of characters
+ * @val: value
+ *
  * Return: nothing
  */
 
-void printstring(char *str)
+int _printstr(va_list val)
 {
-while (*str != '\0')
+char *str;
+int x, length;
+
+str = va_arg(val, char *);
+if (str == NULL)
 {
-write(1, str, 1);
+str = "(null)";
+length = _strlen(str);
+for (x = 0; x < length; x++)
+_putchar(str[x]);
+return (length);
 }
-write(1, "\n", 1);
+else
+{
+length = _strlen(str);
+for (x = 0; x < length; x++)
+_putchar(str[x]);
+return (length);
+}
 }

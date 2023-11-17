@@ -5,42 +5,67 @@
 
 
 /**
+ * _printf - A custom printf function
+ * @format: A format string
  *
- *
- *
- *
+ * Return: Number of characters printed.
  */
 
 int _printf(const char *format, ...)
 {
 va_list args;
-int i = 0;
-int char_print = 0;
+int char_print, i;
+va_start(args, format);
 
+char_print = 0;
+i = 0;
 
-while(format[i] != '\0')
+while (format[i] != '\0')
 {
-	if (format[i] == '%'){
-	i++;
-        if (format[i] == 's')
-	{
-            char_print += printstr(args);
-        } else if (format[i]  == '%'){
-            char_print += print_perc();
-        } else if (format[i]  == 'c') {
-            char_print += printchar(args);
-        } else if (format[i]  == 'd') {
-            char_print += print_int(args);
-        } else if (format[i]  == 'r') {
-            char_print += print_unknown();
-	}
-	} else
-	{
-            _putchar(format[i]);
-		char_print++;
-        }
-	i++;
-    }
-    va_end(args);
+if (format[i] == '%')
+{
+i++;
+char_print += _print_specifier(format[i], args);
+}
+else
+{
+_putchar(format[i]);
+char_print++;
+}
+i++;
+}
+
+va_end(args);
 return (char_print);
+}
+
+/**
+ * _print_specifier - A function that print specifiers from arguments.
+ * @specifier: A specifier from the format string.
+ * @args: a variable argument
+ *
+ * Return: 1
+ */
+
+int _print_specifier(char specifier, va_list args)
+{
+switch (specifier)
+{
+case 's':
+	return (_printstr(args));
+case '%':
+	return (print_perc());
+case 'c':
+	return (printchar(args));
+case 'd':
+case 'i':
+	return (print_int(args));
+case 'u':
+	return (unsigned_int(args));
+case 'r':
+	return (print_unknown());
+default:
+	_putchar(specifier);
+return (1);
+}
 }

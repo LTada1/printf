@@ -13,11 +13,12 @@ char specifiers;
 }Fspecify;
 
 int print_unknown(void);
+int print_unsigned(va_list args);
 int printchar(va_list chr);
 int _putchar(char);
 int print_perc(void);
-int printstr(va_list);
-int print_int(va_list);
+int _printstr(va_list val);
+int print_int(va_list nums);
 int print_dec(va_list);
 int print_bin(va_list);
 int _exp(int, int);
@@ -32,6 +33,8 @@ int print_heX(va_list);
 void put_hex(int nums[], int, int);
 void put_heX(int nums[], int, int);
 
+int unsigned_int(va_list args);
+int _print_specifier(char specifier, va_list args);
 int int_len(int num);
 int _printf(const char *format, ...);
 char *int_to_str(char *str, int num);
