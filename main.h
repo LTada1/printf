@@ -24,6 +24,8 @@ int print_bin(va_list);
 int print_oct(va_list);
 int _exp(int, int);
 int digits(int);
+void put_hex(int [], int, int);
+void put_heX(int [], int, int);
 /*int _strlen(char *s);*/
 int print_ui(va_list);
 
