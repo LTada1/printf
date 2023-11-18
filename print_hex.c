@@ -40,7 +40,6 @@ int print_hex(va_list nums)
 	}
 	++i;
 
-	_putchar('\n');
 
 	return (i);
 }
@@ -84,7 +83,6 @@ int print_heX(va_list nums)
 		}
 	}
 	++i;
-	_putchar('\n');
 
 	return (i);
 }
