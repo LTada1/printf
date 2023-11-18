@@ -67,6 +67,8 @@ case 'r':
 case 'X':
 case 'x':
 	return (print_hex(args));
+case 'o':
+	return (print_oct(args));
 default:
 	_putchar(specifier);
 return (1);

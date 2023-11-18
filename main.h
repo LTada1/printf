@@ -21,6 +21,7 @@ int _printstr(va_list val);
 int print_int(va_list nums);
 int print_dec(va_list);
 int print_bin(va_list);
+int print_oct(va_list);
 int _exp(int, int);
 int digits(int);
 /*int _strlen(char *s);*/
